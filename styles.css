@@ -1,0 +1,248 @@
+/*DAVID MCCRAVEN*/
+/*10/27/2020*/
+
+/*GLOBAL*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+figure {
+  border: 1px #cccccc solid;
+  padding: 4px;
+  margin: auto;
+}
+
+figcaption {
+  background-color: black;
+  color: white;
+  font-style: bold;
+  padding: 2px;
+  text-align: center;
+}
+
+a { 
+  transition: transform 0.5s;
+}
+
+a:hover {
+  transform: scale(0.95); 
+}
+
+a img:hover {
+  transform: scale(0.95);
+  transition: transform 0.5s;
+}
+
+/*GRID CONTAINER START*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 250px 1fr 450px auto auto auto auto auto auto;
+  gap: 0px 0px;
+  max-width: 1000px;
+  margin: auto;
+  grid-template-areas:
+    "header-main"
+    "nav"
+    "me"
+    "info"
+    "digital"
+    "drawing"
+    "photo"
+    "video"
+    "footer";
+}
+
+.header-main { grid-area: header-main;
+  background-image: url("images/pup450.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.nav { 
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.3em;
+  }
+
+.nav a {
+  text-align: center;
+  padding: 12px 20px 12px 20px;
+  display: block;
+  text-decoration: none;
+  }
+
+.nav ul {
+  list-style: none;
+}
+
+.nav li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/*IMAGES CHANGE RESOLUTION*/
+.me { 
+  grid-area: me;
+  background-image: url("images/me450.jpg");
+  background-size: cover;
+  background-position: center center;
+  }
+
+.info { grid-area: info;
+  text-align: center;
+  align-items: center;
+  padding: 15px 20px 15px 20px;
+}
+
+.info h2 {
+  padding-bottom: 15px;
+}
+
+.digital { grid-area: digital;
+  display: flex;
+  align-items: center;
+}
+
+.drawing { grid-area: drawing;
+  display: flex;
+  align-items: center;
+}
+
+.photo { grid-area: photo;
+  display: flex;
+  align-items: center;
+}
+
+.video { grid-area: video;
+  display: flex;
+  align-items: center;
+}
+
+.footer { grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-bottom: 15px;
+}
+
+.footer a {
+  text-align: center;
+  padding: 12px 20px 12px 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.footer h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+@supports (grid-area: auto) {
+
+/*LAYOUT CHANGES TO 4 COLUMNS/IMAGE RESOLUTION SCALES/NAV FLEXES*/
+@media (min-width: 717px) {
+
+  .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 400px auto 400px auto auto;
+      gap: 0px 0px;
+      grid-template-areas:
+        "header-main header-main header-main header-main"
+        "nav nav nav nav"
+        "me me info info"
+        "digital drawing photo video"
+        "footer footer footer footer";
+    }
+  
+  .nav ul {
+      display: flex;
+      justify-content: space-between;
+      }
+
+      .header-main { grid-area: header-main;
+        background-image: url("images/pup750.jpg");
+        background-size: cover;
+        background-position: center center;
+      }
+  
+      .info { grid-area: info;
+        text-align: center;
+        align-items: center;
+        padding: 65px 20px 15px 20px;
+      }
+      
+      .me { 
+        grid-area: me;
+        background-image: url("images/me750.jpg");
+        background-size: cover;
+        background-position: center center;
+        }
+
+      a { 
+        transition: transform 0.5s;
+      }
+
+      a:hover {
+        transform: scale(0.95); 
+      }
+}
+
+/*IMAGE RESOLUTION SCALES/NAV TWEAKS*/
+@media (min-width: 837px) {
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 400px auto 500px auto auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "header-main header-main header-main header-main"
+      "nav nav nav nav"
+      "me me info info"
+      "digital drawing photo video"
+      "footer footer footer footer";
+  }
+
+  .header-main { grid-area: header-main;
+    background-image: url("images/pup1000.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .me { 
+    grid-area: me;
+    background-image: url("images/me1000.jpg");
+    background-size: cover;
+    background-position: center center;
+    }
+
+    .info { grid-area: info;
+      text-align: center;
+      align-items: center;
+      padding: 100px 20px 15px 20px;
+    }
+
+    .nav a {
+      text-align: center;
+      padding: 12px 30px 12px 30px;
+      display: block;
+      text-decoration: none;
+      }
+
+}
+}
